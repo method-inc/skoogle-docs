@@ -6,4 +6,5 @@ gem "nokogiri"
 
 gem "rspec", :group => :test
 gem "rubocop", :group => :test
+gem "vcr", :group => :test
 

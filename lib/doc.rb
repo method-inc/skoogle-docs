@@ -2,7 +2,7 @@ require 'google_drive'
 
 module SkoogleDoc
   class Doc
-    def initialize(google_docs_key, transforms={})
+    def initialize(google_docs_key)
       @google_docs_key = google_docs_key
       @session = self.class.session
     end
@@ -22,19 +22,17 @@ module SkoogleDoc
       body = string ? Nokogiri::HTML(string).css('body').to_s
           : @latest_from_google.body
       dom = Nokogiri::HTML(body)
-      head = dom.at_css('head') || dom.at_css('html')
-      css = SkoogleDoc::Transformers.link('./styleguide.css')
-      utf8 = SkoogleDoc::Transformers.meta({content: 'UTF-8'})
-      head.prepend_child css
-      head.prepend_child utf8
+      SkoogleDoc::Transformers.link(dom, './styleguide.css')
+      SkoogleDoc::Transformers.meta(dom, {content: 'UTF-8'})
+      SkoogleDoc::Transformers.wrap_content(dom)
+      SkoogleDoc::Transformers.cover_page(dom)
+      SkoogleDoc::Transformers.styled_lists(dom)
 
-      #binding.pry
-      
       # apply transformations
       if ENV['SKOOGLE_TEST']
         path = File.join(__dir__, "..", "tmp", "index.html")
         File.write(path, dom.to_html)
-        system %{open #{path}}
+        # system %{open #{path}}
       end
 
       dom.to_html

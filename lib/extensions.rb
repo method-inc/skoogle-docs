@@ -1,4 +1,5 @@
 require 'google_drive'
+require 'nokogiri'
 
 GoogleDrive::File.class_eval do
 
@@ -43,5 +44,12 @@ GoogleDrive::Session.class_eval do
     rescue GoogleDrive::Error => _
       raise(ArgumentError, "Invalid key: %p" % key)
     end
+  end
+end
+
+class Nokogiri::XML::Node
+  def add_css_class( *classes )
+    existing = (self['class'] || "").split(/\s+/)
+    self['class'] = existing.concat(classes).uniq.join(" ")
   end
 end
