@@ -1,5 +1,5 @@
-require 'google_drive'
-require 'nokogiri'
+require "google_drive"
+require "nokogiri"
 
 GoogleDrive::File.class_eval do
 
@@ -8,8 +8,8 @@ GoogleDrive::File.class_eval do
   # @return [String]
   def body
     unless @body
-      string = download_to_string(content_type: 'text/html')
-      @body = Nokogiri::HTML(string).css('body').to_s
+      string = download_to_string(content_type: "text/html")
+      @body = Nokogiri::HTML(string).css("body").to_s
     end
     @body
   end
@@ -19,7 +19,7 @@ GoogleDrive::File.class_eval do
   # @return [DateTime]
   def updated_at
     unless @updated_at
-      updated_at = document_feed_entry.search('updated').first.text
+      updated_at = document_feed_entry.search("updated").first.text
       @updated_at = DateTime.parse(updated_at)
     end
     @updated_at
@@ -35,11 +35,11 @@ GoogleDrive::Session.class_eval do
   # Raises an error if not found.
   #
   # e.g.
-  # session.file_by_key('0AkCUOtrZrtc-dHhPSDNDVFpTWEhqNW8yaVVTNlZrLVE')
+  # session.file_by_key("0AkCUOtrZrtc-dHhPSDNDVFpTWEhqNW8yaVVTNlZrLVE")
   def file_by_key(key)
     url = "#{DOCS_BASE_URL}/#{key}?v=3"
     begin
-      doc = request(:get, url, :auth => :writely)
+      doc = request(:get, url, auth: :writely)
       return entry_element_to_file(doc.css("entry"))
     rescue GoogleDrive::Error => _
       raise(ArgumentError, "Invalid key: %p" % key)
@@ -48,8 +48,8 @@ GoogleDrive::Session.class_eval do
 end
 
 class Nokogiri::XML::Node
-  def add_css_class( *classes )
-    existing = (self['class'] || "").split(/\s+/)
-    self['class'] = existing.concat(classes).uniq.join(" ")
+  def add_css_class(*classes)
+    existing = (self["class"] || "").split(/\s+/)
+    self["class"] = existing.concat(classes).uniq.join(" ")
   end
 end

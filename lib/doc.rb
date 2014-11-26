@@ -1,4 +1,4 @@
-require 'google_drive'
+require "google_drive"
 
 module SkoogleDoc
   class Doc
@@ -19,18 +19,22 @@ module SkoogleDoc
     end
 
     def transform(string)
-      body = string ? Nokogiri::HTML(string).css('body').to_s
-          : @latest_from_google.body
-      dom = Nokogiri::HTML(body)
-      SkoogleDoc::Transformers.link(dom, './styleguide.css')
-      SkoogleDoc::Transformers.meta(dom, {content: 'UTF-8'})
+      if string
+        body = Nokogiri::HTML(string).css("body").to_s
+      else
+        @latest_from_google.body
+      end
+
+      dom = Nokogiri::HTML("<!DOCTYPE html>" + body)
+      SkoogleDoc::Transformers.link(dom, "./styleguide.css")
+      SkoogleDoc::Transformers.meta(dom, content: "UTF-8")
       SkoogleDoc::Transformers.wrap_content(dom)
       SkoogleDoc::Transformers.cover_page(dom)
       SkoogleDoc::Transformers.styled_lists(dom)
       SkoogleDoc::Transformers.table_of_contents(dom)
 
       # apply transformations
-      if ENV['SKOOGLE_TEST']
+      if ENV["SKOOGLE_TEST"]
         path = File.join(__dir__, "..", "tmp", "index.html")
         File.write(path, dom.to_html)
         # system %{open #{path}}
@@ -39,12 +43,10 @@ module SkoogleDoc
       dom.to_html
     end
 
-    private
-
     # Fetch the document directly from Google
     #
     # @param key [String] google docs key
-    # @return [GoogleDrive::File] Parsed body and updated_at properties for the doc
+    # @return [GoogleDrive::File] Parsed body and updated_at document properties
     def self.fetch_from_google(key)
       session.file_by_key(key)
     end
@@ -53,12 +55,18 @@ module SkoogleDoc
     #
     # @return [Session]
     def self.session
-      return @session if @session 
+      return @session if @session
 
-      if (ENV['GOOGLE_DRIVE_CLIENT_ID']) 
-        self.login_with_oauth(ENV['GOOGLE_DRIVE_CLIENT_ID'], ENV['GOOGLE_DRIVE_CLIENT_SECRET'])
+      if ENV["GOOGLE_DRIVE_CLIENT_ID"]
+        login_with_oauth(
+          ENV["GOOGLE_DRIVE_CLIENT_ID"],
+          ENV["GOOGLE_DRIVE_CLIENT_SECRET"]
+        )
       else
-        GoogleDrive.login(ENV['GOOGLE_DRIVE_USER'], ENV['GOOGLE_DRIVE_PASSWORD'])
+        GoogleDrive.login(
+          ENV["GOOGLE_DRIVE_USER"],
+          ENV["GOOGLE_DRIVE_PASSWORD"]
+        )
       end
     end
 
@@ -84,6 +92,5 @@ module SkoogleDoc
       # Creates a session.
       GoogleDrive.login_with_oauth(access_token)
     end
-
   end
 end
