@@ -63,7 +63,23 @@ describe SkoogleDoc do
       dom = Nokogiri::HTML(config[:instance].transform(File.read(DOCUMENT_FIXTURE)))
       #SkoogleDoc::Transformers.cover_page(dom, custom_cover_page)
 
-      expect(dom.at_css(".cover")).to exist
+      expect(dom.at_css(".cover")).to be
+    end
+
+    it 'can create a table of contents' do
+      dom = Nokogiri::HTML(config[:instance].transform(File.read(DOCUMENT_FIXTURE)))
+      #SkoogleDoc::Transformers.toc(dom, custom_cover_page)
+
+      expect(dom.at_css(".toc")).to be
+      expect(dom.search(".toc a").count).to eq dom.search('main h1, main h2').count
+    end
+
+    xit 'can create a custom table of contents' do
+      dom = Nokogiri::HTML(config[:instance].transform(File.read(DOCUMENT_FIXTURE)))
+      #SkoogleDoc::Transformers.toc(dom, custom_cover_page)
+
+      expect(dom.at_css(".toc")).to be
+      expect(dom.search(".toc a").count).to eq dom.search('main h1, main h2').count
     end
   end
 

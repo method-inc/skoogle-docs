@@ -27,6 +27,7 @@ module SkoogleDoc
       SkoogleDoc::Transformers.wrap_content(dom)
       SkoogleDoc::Transformers.cover_page(dom)
       SkoogleDoc::Transformers.styled_lists(dom)
+      SkoogleDoc::Transformers.table_of_contents(dom)
 
       # apply transformations
       if ENV['SKOOGLE_TEST']

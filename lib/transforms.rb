@@ -1,3 +1,13 @@
+require 'set'
+
+def rand_n(n, max)
+  randoms = Set.new
+  loop do
+    randoms << rand(max)
+    return randoms.to_a if randoms.size >= n
+  end
+end
+
 module SkoogleDoc
   module Transformers
     template = lambda {|n| File.join(__dir__, "templates", "#{n}.html") }
@@ -41,6 +51,30 @@ module SkoogleDoc
           li.remove
         end
       end
+    end
+
+    def Transformers.table_of_contents(dom)
+      titles = dom.search('.content h1, .content h2')
+      ns = rand_n(titles.count, titles.count * 5)
+
+      toc = Nokogiri::HTML::DocumentFragment.parse '<ul class="toc" />'
+      ul = toc.first_element_child
+
+      titles.each_with_index do |t, i|
+        id = t.name << ns[i].to_s
+        t[:id] = id
+        li = Nokogiri::XML::Node.new "li", toc
+        a = Nokogiri::XML::Node.new "a", toc
+        a[:href] = "##{id}"
+        a.content = t.content
+
+        li[:class] = t.name.downcase
+        li.add_child a
+
+        ul.add_child li
+      end
+
+      dom.at_css('body').prepend_child toc.to_html
     end
 
     private
