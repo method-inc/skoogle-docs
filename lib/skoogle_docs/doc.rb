@@ -1,6 +1,6 @@
 require "google_drive"
 
-module SkoogleDoc
+module SkoogleDocs
   class Doc
     def initialize(google_docs_key)
       @google_docs_key = google_docs_key
@@ -83,9 +83,9 @@ module SkoogleDoc
         "https://docs.google.com/feeds/ " +
         "https://docs.googleusercontent.com/ "
       auth.redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
-      print("1. Open this page:\n%s\n\n" % auth.authorization_uri)
-      print("2. Enter the authorization code shown in the page: ")
-      auth.code = $stdin.gets.chomp
+      # print("1. Open this page:\n%s\n\n" % auth.authorization_uri)
+      # print("2. Enter the authorization code shown in the page: ")
+      auth.code = "4/EDPi6rbU50_Ckuh8mgCOgRCDBgE8RI7kB15PdvCgnfM.whUhCyw2s9wc3oEBd8DOtNDZD15YlAI"
       auth.fetch_access_token!
       access_token = auth.access_token
 
