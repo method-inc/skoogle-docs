@@ -11,7 +11,7 @@ module SkoogleDocs
     #
     # @return [GoogleDrive::File]
     def latest_from_google
-      @latest_from_google ||= @session.file_by_key(@google_docs_key)
+      @latest_from_google ||= @session.file_by_title("Skoogle Docs")
     end
 
     def files
@@ -85,7 +85,8 @@ module SkoogleDocs
       auth.redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
       # print("1. Open this page:\n%s\n\n" % auth.authorization_uri)
       # print("2. Enter the authorization code shown in the page: ")
-      auth.code = "4/EDPi6rbU50_Ckuh8mgCOgRCDBgE8RI7kB15PdvCgnfM.whUhCyw2s9wc3oEBd8DOtNDZD15YlAI"
+      # auth.code = $stdin.gets.chomp
+      auth.code = "4/7im3Dyj7E3oXc5rIU-fwO9OvOTZ8r7ZbPl0yoc6bVqk.kuDmfZWJ3J8Q3oEBd8DOtNDDbfhplAI".chomp
       auth.fetch_access_token!
       access_token = auth.access_token
 
