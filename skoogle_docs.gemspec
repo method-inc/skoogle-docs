@@ -1,16 +1,16 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'skoogle_docs/version'
+require "skoogle_docs/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "skoogle_docs"
   spec.version       = SkoogleDocs::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.authors       = ["Dustan Kasten", "Enrique Gonzalez"]
+  spec.email         = ["dustan@skookum.com"]
+  spec.summary       = "A gem for requesting and transforming Google Docs."
+  spec.description   = ""
+  spec.homepage      = "www.skookum.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

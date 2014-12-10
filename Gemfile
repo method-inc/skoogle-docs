@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 gemspec
 
 group :development do
@@ -17,4 +17,3 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "guard-rubocop", require: false
 end
-

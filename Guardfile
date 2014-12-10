@@ -16,7 +16,6 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-
 guard :rspec, cmd: "dotenv rspec" do
   require "ostruct"
 
@@ -32,5 +31,6 @@ end
 
 guard :rubocop, all_on_start: false, cmd: "rubocop --require rubocop-rspec" do
   watch(%r{.+\.rb$})
+  watch(%r{.+\.gemspec$})
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
