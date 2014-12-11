@@ -3,7 +3,7 @@ require "vcr"
 require "rspec"
 
 SimpleCov.start do
-  add_filter '/spec/'
+  add_filter "/spec/"
   minimum_coverage(90)
 end
 
@@ -17,3 +17,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+require "skoogle_docs"
