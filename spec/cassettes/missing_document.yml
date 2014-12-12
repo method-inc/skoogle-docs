@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/drive/v2/files/fake_id
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - |-
+        google-api-ruby-client/0.7.1 Mac OS X/10.10.1
+         (gzip)
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - ''
+      Authorization:
+      - Bearer ya29.2gBIX58paLvsVKi5QOCa1cJEKTl35JtH6hF6gk1Ot_qv38WWgGk6gPs2oydTP7j0S1oHLF-nSpykzg
+      Cache-Control:
+      - no-store
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 12 Dec 2014 17:46:13 GMT
+      Expires:
+      - Fri, 12 Dec 2014 17:46:13 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAI2LMQ6DMAxF95zC8szAwMQBuASqkNsYFDXEUtJOKHevHcrO
+        8qX3/v+HA+ScJeMIh4M/FKVZqSmVXnYKSSVuUZ4UsTt9ZirSfJLPJN/kr2bn
+        Umhjq6YQGbSH1QYjrPTmJXi0YdV42AVf4m099EPDW//qqvsBSJRnZcEAAAA=
+    http_version: 
+  recorded_at: Fri, 12 Dec 2014 17:46:13 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/drive/v2/files/fake_id
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - |-
+        google-api-ruby-client/0.7.1 Mac OS X/10.10.1
+         (gzip)
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - ''
+      Authorization:
+      - Bearer ya29.2gBIX58paLvsVKi5QOCa1cJEKTl35JtH6hF6gk1Ot_qv38WWgGk6gPs2oydTP7j0S1oHLF-nSpykzg
+      Cache-Control:
+      - no-store
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 12 Dec 2014 17:46:16 GMT
+      Expires:
+      - Fri, 12 Dec 2014 17:46:16 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAI2LMQ6DMAxF95zC8szAwMQBuASqkNsYFDXEUtJOKHevHcrO
+        8qX3/v+HA+ScJeMIh4M/FKVZqSmVXnYKSSVuUZ4UsTt9ZirSfJLPJN/kr2bn
+        Umhjq6YQGbSH1QYjrPTmJXi0YdV42AVf4m099EPDW//qqvsBSJRnZcEAAAA=
+    http_version: 
+  recorded_at: Fri, 12 Dec 2014 17:46:16 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/drive/v2/files/fake_id
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - |-
+        google-api-ruby-client/0.7.1 Mac OS X/10.10.1
+         (gzip)
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - ''
+      Authorization:
+      - Bearer ya29.2gBIX58paLvsVKi5QOCa1cJEKTl35JtH6hF6gk1Ot_qv38WWgGk6gPs2oydTP7j0S1oHLF-nSpykzg
+      Cache-Control:
+      - no-store
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 12 Dec 2014 17:46:20 GMT
+      Expires:
+      - Fri, 12 Dec 2014 17:46:20 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAI2LMQ6DMAxF95zC8szAwMQBuASqkNsYFDXEUtJOKHevHcrO
+        8qX3/v+HA+ScJeMIh4M/FKVZqSmVXnYKSSVuUZ4UsTt9ZirSfJLPJN/kr2bn
+        Umhjq6YQGbSH1QYjrPTmJXi0YdV42AVf4m099EPDW//qqvsBSJRnZcEAAAA=
+    http_version: 
+  recorded_at: Fri, 12 Dec 2014 17:46:20 GMT
+recorded_with: VCR 2.9.3

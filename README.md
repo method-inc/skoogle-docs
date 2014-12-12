@@ -2,6 +2,22 @@
 
 A library for requesting and transforming Google Docs.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'skoogle_docs'
+```
+
+And then execute:
+
+$ bundle
+
+Or install it yourself as:
+
+$ gem install skoogle_docs
+
 ## Usage
 
 * `TODO` put onto RubyGems
@@ -36,9 +52,6 @@ GOOGLE_DRIVE_password="logmein"
 * `dotenv rspec`
 
 ## License
- 
+
 Copyright 2014 Skookum Digital Works.
 `TODO` License selection
-
-
-

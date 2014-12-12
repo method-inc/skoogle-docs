@@ -1,15 +1,19 @@
-ruby "2.1.5"
 source "https://rubygems.org"
+gemspec
 
-gem "google_drive"
-gem "nokogiri"
+group :development do
+  gem "pry"
+end
 
 group :test do
-  gem "rspec"
-  gem "vcr"
+  gem "coveralls", require: false
+  gem "simplecov", require: false
 end
 
-group :test, :development do
-  gem "rubocop"
+group :development, :test do
+  gem "guard"
+  gem "guard-rspec", require: false
+  gem "rubocop", require: false
+  gem "rubocop-rspec", require: false
+  gem "guard-rubocop", require: false
 end
-
