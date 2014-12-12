@@ -1,5 +1,3 @@
-require "google_drive"
-
 module SkoogleDocs
   class Document
     # TODO: Refactor this
