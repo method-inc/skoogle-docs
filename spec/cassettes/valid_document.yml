@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/drive/v2/files/1YPYsTsedEQXJztXOtPcPkdiy16ow8P4c0DXzHKcaB7A
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - |-
+        google-api-ruby-client/0.7.1 Mac OS X/10.10.1
+         (gzip)
+      Accept-Encoding:
+      - gzip
+      Content-Type:
+      - ''
+      Authorization:
+      - Bearer ya29.2gBIX58paLvsVKi5QOCa1cJEKTl35JtH6hF6gk1Ot_qv38WWgGk6gPs2oydTP7j0S1oHLF-nSpykzg
+      Cache-Control:
+      - no-store
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Fri, 12 Dec 2014 17:46:20 GMT
+      Date:
+      - Fri, 12 Dec 2014 17:46:20 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"Lie3Y624-6bAlCGsnUSYyb6P-dU/MTQxODIyNzg3MTAxNw"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAO1XW2/iOBR+51cgRurTgJOQwlAJddPS7dAZOnQLbWFnVJnY
+        EA9J7NoOl47639eXAC3t7JaVdvqyCAWwz+U798OPQrE0JSkqHRRLiJMZfjcm
+        MS69V8fEHLqD7kD0BEYnFzdn9/Lmi+yG3SkiS7dG5x+6fui0bu4/fgrhUT0w
+        bFjCiWb8WvpMcHVQ8/xybRTEx6ci7V8OlqNat4z6oNO7WHxptZfn95Nqpxcs
+        zudfS4Zd4Hj8maRTLSKSkokDAObzeWVC6STGkBFRCWkCDFYw84CGK8DOKGEs
+        MU+hxNu6EA1FrswogkBMKZ1miVVLwyzBqQRoJ5UAIyIPM8GaBrdAU+uqZITR
+        rwHAOJ4RPLeBDWm6rVWIuDIREkoSrvQI/YiJkIAkcKKcrPluXfd2heFWX1ZY
+        OjFSZZQloxSSeDeDxhgjAWbycIKakmd4j6DmLpbtzZrOnmgGHYzOUxro11Vb
+        nrY+Vu/aw+uTqC/P9o/OT4+POzKO/GveYdd74r4pPM+xsIlU+a7gXk4NxGJL
+        wTU3CUlwb8nMJWQsJqHyDk3BLEW5OWV1LCordximGI5wLBTLj0JRJbOEnGNd
+        R2MYC/xen0UEIZw+OZIcimiLjGMhOQnl1rEOojnSvioUH7TOkGOVyKilHhqr
+        57h+2XXKTq3nOQde9WDfq1SdxtAaRREZk21iT9H33NqB66p3xXHrw9wYIa+M
+        wqNlBz9jcXtuQ8t3/Eqj7ubyIZ9i9Domp5GDEhFUXromMnqB4TEwz7cMM8yF
+        CoWmq1Ybyjh/LYekk77AfBWBp70t0zfGj4gIFsPlOUyMtlamQpUWPymDVWwM
+        BVPOzzjOBRVLGY8fZ7VKpjwLtFBVGYpRmowu10QGT4aDYEguQLB+tTffT/og
+        YwgG3+dR42YCRM0HLKKSVr6zSUkpezAAiAgyGSmpOvEwyq3apALDPCFC+6Ft
+        O7VTdx3/g99w9l3fre37Xr1uTcGJKssAIZVTwjjDWPvbozIs5anEVCBSqYn+
+        /GY61IJRLnVFr3N6uxQow+kiiceUJ1CKMh2PSYhXNVGZU44Yp6HSrCKTxJtq
+        +ZsOYXsCovM0phCte54AFg44MR+Hu3YKy/27AdpUQhfWO88MgkINGW3W2gqJ
+        F28OmCL5HC+X47fGpSHYLqacBCKZxG+NyGDYQFJ1TtK3xiQXL0SPoTePnoaQ
+        177uY911T3m5gW56Tt5ZXrXs/XFzPxjdxWdVh/V9b3q5nwZkfLW4GDYcu/Wt
+        ls0E21///RIINpYIsFLLqV0F5pzI1aCQ+QZgRkfuqbuMSni0lFiopmyA211C
+        RQpzPVJMA9XcT+dKofhtTbYiscPlJ2PqFXPq2aD6pZPKjqp/nFU7DKtXTqvi
+        Q+5MvaN09FKzzCf/T131nPT/JeFfLQn6zwwcmVLRW6hZQSlbbh3ZIhLHML3U
+        692jG7vuPTpQPVGtffDY+kesDCg8FP4Cnohaep8OAAA=
+    http_version: 
+  recorded_at: Fri, 12 Dec 2014 17:46:20 GMT
+recorded_with: VCR 2.9.3

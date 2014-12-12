@@ -6,8 +6,16 @@ describe SkoogleDocs::Browser do
   end
 
   let(:session) do
-    VCR.use_cassette("session") do
-      SkoogleDocs::Session.new
+    VCR.use_cassette("valid_session") do
+      SkoogleDocs::Session.new(client)
+    end
+  end
+
+  let(:client) do
+    SkoogleDocs::Client.new do |config|
+      config.client_id     = ENV["CLIENT_ID"]
+      config.client_secret = ENV["CLIENT_SECRET"]
+      config.access_token  = ENV["CLIENT_TOKEN"]
     end
   end
 
@@ -42,9 +50,9 @@ describe SkoogleDocs::Browser do
 
     it "returns document types only" do
       are_documents = documents.all? do |doc|
-        doc.mimeType == browser.DOC_MIMETYPE
+        doc.mimeType == browser.mime_type
       end
-      expect(are_documents).to be_true
+      expect(are_documents).to be_truthy
     end
   end
 
