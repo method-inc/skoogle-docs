@@ -33,11 +33,13 @@ module SkoogleDocs
     def validate_document(doc)
       # TODO: It is possible to have other errors so don't bucket
       # every error as "not found" (404)
-      it_was_found = doc.status == 200
-      raise SkoogleDocs::Errors::DocumentNotFound unless it_was_found
+      unless doc.status == 200
+        raise SkoogleDocs::Errors::DocumentNotFound
+      end
 
-      it_is_document = doc.data.mimeType == DOC_MIME_TYPE
-      raise SkoogleDocs::Errors::InvalidDocument unless it_is_document
+      unless doc.data.mimeType == DOC_MIME_TYPE
+        raise SkoogleDocs::Errors::InvalidDocument
+      end
 
       doc.data
     end

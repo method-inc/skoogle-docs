@@ -1,8 +1,10 @@
 module SkoogleDocs
   class Session
     def initialize(client)
-      it_has_credentials = client.credentials?
-      raise SkoogleDocs::Errors::BadAuthenticationData unless it_has_credentials
+      unless client.credentials?
+        raise SkoogleDocs::Errors::BadAuthenticationData
+      end
+
       @client = client
       configure_google_client
     end
