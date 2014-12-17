@@ -3,34 +3,18 @@ require "helper"
 describe SkoogleDocs::Session do
   subject(:session) do
     VCR.use_cassette("valid_session") do
-      described_class.new(valid_client)
+      described_class.new(build(:client))
     end
   end
 
   let(:invalid_session) do
     VCR.use_cassette("invalid_session") do
-      described_class.new(invalid_client)
+      described_class.new(build(:invalid_client))
     end
   end
 
   let(:missing_session) do
-    described_class.new(SkoogleDocs::Client.new)
-  end
-
-  let(:valid_client) do
-    SkoogleDocs::Client.new do |config|
-      config.client_id     = ENV["CLIENT_ID"]
-      config.client_secret = ENV["CLIENT_SECRET"]
-      config.access_token  = ENV["CLIENT_TOKEN"]
-    end
-  end
-
-  let(:invalid_client) do
-    SkoogleDocs::Client.new do |config|
-      config.client_id     = "invalid"
-      config.client_secret = "invalid"
-      config.access_token  = "invalid"
-    end
+    described_class.new(build(:blank_client))
   end
 
   describe "#new" do

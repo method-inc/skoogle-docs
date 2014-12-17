@@ -22,3 +22,4 @@ RSpec.configure do |config|
 end
 
 require "skoogle_docs"
+FactoryGirl.find_definitions
