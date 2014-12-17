@@ -1,26 +1,14 @@
 require "helper"
 
 describe SkoogleDocs::Session do
-  subject(:session) do
-    VCR.use_cassette("valid_session") do
-      described_class.new(build(:client))
-    end
-  end
-
-  let(:invalid_session) do
-    VCR.use_cassette("invalid_session") do
-      described_class.new(build(:invalid_client))
-    end
-  end
-
-  let(:missing_session) do
-    described_class.new(build(:blank_client))
-  end
+  subject(:session) { build(:session) }
+  let(:invalid_session) { build(:invalid_session) }
+  let(:blank_session) { build(:blank_session) }
 
   describe "#new" do
     context "when Google Drive credentials are missing" do
       it "raises a BadAuthenticationData error" do
-        expected = expect { missing_session }
+        expected = expect { blank_session }
         expected.to raise_error SkoogleDocs::Errors::BadAuthenticationData
       end
     end
