@@ -16,7 +16,7 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-guard :rspec, cmd: "dotenv rspec" do
+guard :rspec, cmd: "bundle exec rspec" do
   require "ostruct"
 
   rspec = OpenStruct.new

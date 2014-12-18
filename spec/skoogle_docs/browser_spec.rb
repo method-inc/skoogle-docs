@@ -1,23 +1,7 @@
 require "helper"
 
 describe SkoogleDocs::Browser do
-  subject(:browser) do
-    described_class.new(session)
-  end
-
-  let(:session) do
-    VCR.use_cassette("valid_session") do
-      SkoogleDocs::Session.new(client)
-    end
-  end
-
-  let(:client) do
-    SkoogleDocs::Client.new do |config|
-      config.client_id     = ENV["CLIENT_ID"]
-      config.client_secret = ENV["CLIENT_SECRET"]
-      config.access_token  = ENV["CLIENT_TOKEN"]
-    end
-  end
+  subject(:browser) { build(:browser) }
 
   let(:documents) do
     VCR.use_cassette("documents") do

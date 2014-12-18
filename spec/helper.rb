@@ -1,6 +1,7 @@
 require "simplecov"
 require "vcr"
 require "rspec"
+require "factory_girl"
 
 SimpleCov.start do
   add_filter "/spec/"
@@ -16,6 +17,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include FactoryGirl::Syntax::Methods
 end
 
 require "skoogle_docs"
+FactoryGirl.find_definitions
