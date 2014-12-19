@@ -16,25 +16,27 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-guard :rspec, cmd: "bundle exec rspec" do
-  require "ostruct"
+group :happy_code, halt_on_fail: true do
+  guard :rspec, cmd: "bundle exec rspec" do
+    require "ostruct"
 
-  rspec = OpenStruct.new
-  rspec.spec = ->(m) { "spec/#{m}_spec.rb" }
-  rspec.spec_dir = "spec"
-  rspec.spec_helper = "spec/helper.rb"
+    rspec = OpenStruct.new
+    rspec.spec = ->(m) { "spec/#{m}_spec.rb" }
+    rspec.spec_dir = "spec"
+    rspec.spec_helper = "spec/helper.rb"
 
-  watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.("lib/#{m[1]}") }
-  watch(rspec.spec_helper)      { rspec.spec_dir }
-end
+    watch(%r{^spec/.+_spec\.rb$})
+    watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.("lib/#{m[1]}") }
+    watch(rspec.spec_helper)      { rspec.spec_dir }
+  end
 
-guard :rubocop, all_on_start: false, cmd: "rubocop --require rubocop-rspec" do
-  watch(%r{.+\.rb$})
-  watch(%r{.+\.gemspec$})
-  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
-end
+  guard :rubocop, all_on_start: false, cmd: "rubocop --require rubocop-rspec" do
+    watch(%r{.+\.rb$})
+    watch(%r{.+\.gemspec$})
+    watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  end
 
-guard :yardstick, all_on_start: false do
-  watch(%r{^lib/(.+)\.rb$})
+  guard :yardstick, all_on_start: false do
+    watch(%r{^lib/(.+)\.rb$})
+  end
 end
