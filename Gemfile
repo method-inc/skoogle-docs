@@ -18,4 +18,5 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-rspec", require: false
   gem "guard-rubocop", require: false
+  gem "guard-yardstick", require: false
 end
