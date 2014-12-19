@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dustan@skookum.com"]
   spec.summary       = "A gem for requesting and transforming Google Docs."
   spec.description   = ""
-  spec.homepage      = "www.skookum.com"
+  spec.homepage      = "http://skookum.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
