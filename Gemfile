@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 gemspec
 
+gem "yard"
+
 group :development do
   gem "pry"
 end
