@@ -10,6 +10,8 @@ rvm:
 
 script: "bundle exec rake ci"
 
+sudo: false
+
 notifications:
   slack:
     secure: MF6f98ygDnSsQkvJWJ3sdYGQax4K/jGFFzEewUXq8XXIyHoXMsaoljQlPFMIEiTT9j6co04Z0gVqv5q820cSyMhhllGXMFgAw3nQdBZ5pFoEDFZYbk07ZuYssKJONLahT6aM4DvCUDDKNdF8WV1/ZEmQ4EXz1CUUv5n/1irQuRs=
