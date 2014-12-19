@@ -1,7 +1,7 @@
 module SkoogleDocs
   class Document
     # TODO: Refactor this
-    def transform(string)
+    def transform # string
       # if string
       #   body = Nokogiri::HTML(string).css("body").to_s
       # else
