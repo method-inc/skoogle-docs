@@ -1,0 +1,23 @@
+language: ruby
+
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1
+- ruby-head
+- jruby-19mode
+- jruby-head
+
+script: "bundle exec rake ci"
+
+sudo: false
+
+notifications:
+  slack:
+    secure: MF6f98ygDnSsQkvJWJ3sdYGQax4K/jGFFzEewUXq8XXIyHoXMsaoljQlPFMIEiTT9j6co04Z0gVqv5q820cSyMhhllGXMFgAw3nQdBZ5pFoEDFZYbk07ZuYssKJONLahT6aM4DvCUDDKNdF8WV1/ZEmQ4EXz1CUUv5n/1irQuRs=
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
