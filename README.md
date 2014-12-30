@@ -1,3 +1,6 @@
+[![Build Status](http://img.shields.io/travis/Skookum/skoogle-docs.svg)](travis)
+[travis]: https://travis-ci.org/Skookum/skoogle-docs
+
 # Skoogle Docs
 
 A library for requesting and transforming Google Docs.
@@ -7,7 +10,7 @@ A library for requesting and transforming Google Docs.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'skoogle_docs'
+gem "skoogle_docs"
 ```
 
 And then execute:
@@ -16,7 +19,9 @@ $ bundle
 
 Or install it yourself as:
 
+```
 $ gem install skoogle_docs
+```
 
 ## Usage
 
@@ -26,24 +31,6 @@ $ gem install skoogle_docs
 ## Contributing
 
 * `TODO` write Contributing.md
-
-You need a few environment variables set. Namely, you will need to set up a
-Google Drive client ID and secret, or use basic auth.
-
-We use `[dotenv](https://github.com/bkeepers/dotenv)` to load our project
-environment variables as needed.
-
-```
-# .env
-
-# for oauth (preferred)
-GOOGLE_DRIVE_CLIENT_ID="my_private_key"
-GOOGLE_DRIVE_CLIENT_SECRET="my_secret"
-
-# for basic auth
-GOOGLE_DRIVE_USER="your_email@gmail.com"
-GOOGLE_DRIVE_password="logmein"
-```
 
 ## Getting Started
 
