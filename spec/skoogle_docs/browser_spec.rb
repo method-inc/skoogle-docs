@@ -4,7 +4,7 @@ describe SkoogleDocs::Browser do
   subject(:browser) { build(:browser) }
 
   let(:documents) do
-    VCR.use_cassette("documents") do
+    VCR.use_cassette("documents", match_requests_on: [:host, :path]) do
       browser.documents
     end
   end

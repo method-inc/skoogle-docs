@@ -1,5 +1,20 @@
 module SkoogleDocs
+  # SkoogleDocs Session object handles authentication with the Google API.
+  #
+  # @api public
   class Session
+    # Instantiates a new SkoogleDocs::Session object
+    #
+    # @param client [SkoogleDocs::Client] the client object with Google API
+    #   credentials
+    #
+    # @raise [SkoogleDocs::Error::AuthorizationError] if client credentials are
+    #   invalid
+    #
+    # @return [SkoogleDocs::Session]
+    #
+    # @example Using Existing Client
+    #   session = SkoogleDocs::Session.new(client)
     def initialize(client)
       unless client.credentials?
         raise SkoogleDocs::Errors::BadAuthenticationData
@@ -9,16 +24,37 @@ module SkoogleDocs
       configure_google_client
     end
 
+    # Wrapper to the Google Drive API
+    #
+    # @return [Google::APIClient::API]
+    #
+    # @example Accessing Google Drive API
+    #   session = SkoogleDocs::Session.new(client)
+    #   session.api.files.get
     def api
       @drive
     end
 
+    # Wraps requests to the Google API
+    #
+    # @param params [Hash] filters and api method for the request
+    #
+    # @return [Google::APIClient::Result]
+    #
+    # @example Requesting Google Drive API
+    #   session = SkoogleDocs::Session.new(client)
+    #   files = session.execute(api_method: session.api.files.get)
     def execute(params)
       @google_client.execute(params)
     end
 
     private
 
+    # Initializes a Google API Client and opens the Drive api
+    #
+    # @api private
+    #
+    # @return [nil]
     def configure_google_client
       @google_client = Google::APIClient.new
       @google_client.retries = 2
@@ -26,6 +62,11 @@ module SkoogleDocs
       authorize
     end
 
+    # Runs oauth flow to use the Google API
+    #
+    # @api private
+    #
+    # @return [nil]
     def authorize
       auth = @google_client.authorization
       auth.client_id = @client.client_id
@@ -36,6 +77,13 @@ module SkoogleDocs
       fetch_access_token(auth)
     end
 
+    # Wraps the access token request
+    #
+    # @api private
+    #
+    # @raise [SkoogleDocs::Error::AuthorizationError] if credentials are invalid
+    #
+    # @return [nil]
     def fetch_access_token(auth)
       auth.fetch_access_token!
     rescue Signet::AuthorizationError
