@@ -15,11 +15,13 @@ gem "skoogle_docs"
 
 And then execute:
 
+```sh
 $ bundle
+```
 
 Or install it yourself as:
 
-```
+```sh
 $ gem install skoogle_docs
 ```
 
