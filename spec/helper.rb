@@ -1,14 +1,13 @@
-# require "simplecov"
+require "simplecov"
 require "vcr"
 require "rspec"
 require "factory_girl"
 
-# SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
-# SimpleCov.start do
-#   add_filter "/spec/"
-#   Awful hack to not require minimum coverage if it's not Ruby
-#   minimum_coverage(90) unless RUBY_PLATFORM == "java"
-# end
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+SimpleCov.start do
+  add_filter "/spec/"
+  minimum_coverage(90)
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes"
