@@ -6,7 +6,8 @@ require "factory_girl"
 SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 SimpleCov.start do
   add_filter "/spec/"
-  minimum_coverage(90)
+  # Awful hack to not require minimum coverage if it's not Ruby
+  minimum_coverage(90) unless RUBY_PLATFORM == "java"
 end
 
 VCR.configure do |config|
