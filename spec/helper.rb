@@ -3,6 +3,7 @@ require "vcr"
 require "rspec"
 require "factory_girl"
 
+SimpleCov.formatters = SimpleCov::Formatter::HTMLFormatter
 SimpleCov.start do
   add_filter "/spec/"
   minimum_coverage(90)

@@ -1,5 +1,9 @@
 language: ruby
 
+sudo: false
+
+cache: bundler
+
 rvm:
 - 1.9.3
 - 2.0.0
@@ -9,8 +13,6 @@ rvm:
 - jruby-head
 
 script: "bundle exec rake ci"
-
-sudo: false
 
 notifications:
   slack:
