@@ -34,7 +34,7 @@ module SkoogleDocs
       ).data.items
     end
 
-    # Makes a request to retrie a document based on the ID
+    # Makes a request to retrieve a document based on the ID
     #
     # @param doc_id [String] the id of the document to look for
     #

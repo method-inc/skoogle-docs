@@ -1,4 +1,4 @@
-[![Build Status](http://img.shields.io/travis/Skookum/skoogle-docs.svg)](travis)
+[![Build Status](http://img.shields.io/travis/Skookum/skoogle-docs.svg)][travis]
 [travis]: https://travis-ci.org/Skookum/skoogle-docs
 
 # Skoogle Docs
