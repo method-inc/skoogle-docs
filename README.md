@@ -1,7 +1,10 @@
-[![Build Status](http://img.shields.io/travis/Skookum/skoogle-docs.svg)][travis]
-[travis]: https://travis-ci.org/Skookum/skoogle-docs
-
 # Skoogle Docs
+
+[![Build Status](https://img.shields.io/travis/Skookum/skoogle-docs.svg)][travis]
+[![Coverage Status](https://img.shields.io/coveralls/Skookum/skoogle-docs.svg)][coveralls]
+
+[travis]: https://travis-ci.org/Skookum/skoogle-docs
+[coveralls]: https://coveralls.io/r/Skookum/skoogle-docs
 
 A library for requesting and transforming Google Docs.
 
