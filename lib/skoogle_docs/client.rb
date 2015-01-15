@@ -16,6 +16,13 @@ module SkoogleDocs
     #   @return [String] the Google API access token
     attr_accessor :client_id, :client_secret, :access_token
 
+    # @!attribute [rw] application_name
+    #   @return [String] a name for your application (optional)
+    #
+    # @!attribute [rw] application_version
+    #   @return [String] the version of your application (optional)
+    attr_accessor :application_name, :application_version
+
     # Instantiates a new SkoogleDocs::Client object
     #
     # @param options [Hash] the Google API credentials, `client_id`,
@@ -28,13 +35,17 @@ module SkoogleDocs
     #     config.client_id = "my_client_id"
     #     config.client_secret = "my_client_secret"
     #     config.access_token = "my_access_token"
+    #     config.application_name = "Skoogle Docs"
+    #     config.application_version = "0.0.1"
     #   end
     #
     # @example Using a Hash
     #   client = SkoogleDocs::Client.new(
     #     client_id: "my_client_id",
     #     client_secret: "my_client_secret",
-    #     access_token: "my_access_token"
+    #     access_token: "my_access_token",
+    #     application_name: "Skoogle Docs",
+    #     application_version: "0.0.1"
     #   )
     #
     # @example Blank Client
@@ -76,6 +87,16 @@ module SkoogleDocs
         client_id: client_id,
         client_secret: client_secret,
         token: access_token
+      }
+    end
+
+    # Wraps the application details into a Hash
+    #
+    # @return [Hash]
+    def details
+      {
+        application_name: application_name,
+        application_version: application_version
       }
     end
 

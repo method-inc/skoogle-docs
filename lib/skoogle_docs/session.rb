@@ -56,7 +56,7 @@ module SkoogleDocs
     #
     # @return [nil]
     def configure_google_client
-      @google_client = Google::APIClient.new
+      @google_client = Google::APIClient.new(@client.details)
       @google_client.retries = 2
       @drive = @google_client.discovered_api("drive", "v2")
       authorize
