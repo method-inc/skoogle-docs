@@ -12,9 +12,6 @@ module SkoogleDocs
     #   to execute requests against the Google API
     #
     # @return [SkoogleDocs::Browser]
-    #
-    # @example Using Existing Session
-    #   browser = SkoogleDocs::Browser.new(session)
     def initialize(session)
       @session = session
       @api = session.api
@@ -23,10 +20,6 @@ module SkoogleDocs
     # Makes a request to retrieve all documents accessible by the session
     #
     # @return [Array]
-    #
-    # @example Fetching Documents
-    #   browser = SkoogleDocs::Browser.new(session)
-    #   docs = browser.documents
     def documents
       @session.execute(
         api_method: @api.files.list,
@@ -45,10 +38,6 @@ module SkoogleDocs
     #   not a Google Document
     #
     # @return [SkoogleDocs::Document]
-    #
-    # @example Fetching Single Document
-    #   browser = SkoogleDocs::Browser.new(session)
-    #   doc = browser.document_by_id("DOC10ID")
     def document_by_id(doc_id)
       doc = @session.execute(
         api_method: @api.files.get,
@@ -63,10 +52,6 @@ module SkoogleDocs
     # @note This is helpful if api later allows for other types of files
     #
     # @return [String]
-    #
-    # @example Accessing MIME Type
-    #   browser = SkoogleDocs::Browser.new(session)
-    #   browser.mime_type
     def mime_type
       DOC_MIME_TYPE
     end

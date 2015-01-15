@@ -1,5 +1,17 @@
 module SkoogleDocs
+  # SkoogleDocs Document object holds file content and transformation
+  #
+  # @api public
   class Document
+    # Instantiates a new SkoogleDocs::Document object
+    #
+    # @param source [String] the string representation of the dom
+    #
+    # @return [SkoogleDocs::Document]
+    def initialize(source)
+      @source = source
+    end
+
     # TODO: Refactor this
     def transform # string
       # if string

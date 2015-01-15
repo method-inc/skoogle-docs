@@ -1,5 +1,5 @@
 module SkoogleDocs
-  # SkoogleDocs Session object handles authentication with the Google API.
+  # SkoogleDocs Session object handles authentication with the Google API
   #
   # @api public
   class Session
@@ -12,9 +12,6 @@ module SkoogleDocs
     #   invalid
     #
     # @return [SkoogleDocs::Session]
-    #
-    # @example Using Existing Client
-    #   session = SkoogleDocs::Session.new(client)
     def initialize(client)
       unless client.credentials?
         raise SkoogleDocs::Errors::BadAuthenticationData
@@ -27,10 +24,6 @@ module SkoogleDocs
     # Wrapper to the Google Drive API
     #
     # @return [Google::APIClient::API]
-    #
-    # @example Accessing Google Drive API
-    #   session = SkoogleDocs::Session.new(client)
-    #   session.api.files.get
     def api
       @drive
     end
