@@ -39,12 +39,15 @@ module SkoogleDocs
     #
     # @return [SkoogleDocs::Document]
     def document_by_id(doc_id)
-      doc = @session.execute(
+      result = @session.execute(
         api_method: @api.files.get,
         parameters: { fileId: doc_id }
       )
 
-      validate_document(doc)
+      file = validate_document(result)
+      doc = download_document(file)
+
+      SkoogleDocs::Document.new(doc)
     end
 
     # A wrapper for the constant file mime type restriction
@@ -83,6 +86,30 @@ module SkoogleDocs
       end
 
       doc.data
+    end
+
+    # Downloads the document's content from Google Drive
+    #
+    # @api private
+    #
+    # @param file [Google::APIClient::Schema::Drive::V2::File] an instace of
+    #   the Google Drive file
+    #
+    # @raise [SkoogleDocs::Errors::DocumentNotFound] if the response is empty
+    #
+    # @return [String]
+    def download_document(file)
+      return "" unless file["exportLinks"] && file["exportLinks"]["text/html"]
+
+      result = @session.execute(uri: file["exportLinks"]["text/html"])
+
+      # TODO: Same as above, there might be other errors that need to be
+      # captured
+      unless result.status == 200
+        raise SkoogleDocs::Errors::DocumentNotFound
+      end
+
+      result.body
     end
   end
 end
