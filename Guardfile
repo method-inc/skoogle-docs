@@ -26,7 +26,7 @@ group :happy_code, halt_on_fail: true do
     rspec.spec_helper = "spec/helper.rb"
 
     watch(%r{^spec/.+_spec\.rb$})
-    watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.("lib/#{m[1]}") }
+    watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.(m[1]) }
     watch(rspec.spec_helper)      { rspec.spec_dir }
   end
 
