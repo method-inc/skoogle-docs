@@ -3,6 +3,9 @@ module SkoogleDocs
   #
   # @api public
   class Session
+    # Only use V2 of Google Drive's API
+    API_VERSION = "v2"
+
     # Instantiates a new SkoogleDocs::Session object
     #
     # @param client [SkoogleDocs::Client] the client object with Google API
@@ -51,7 +54,7 @@ module SkoogleDocs
     def configure_google_client
       @google_client = Google::APIClient.new(@client.details)
       @google_client.retries = 2
-      @drive = @google_client.discovered_api("drive", "v2")
+      @drive = @google_client.discovered_api("drive", API_VERSION)
       authorize
     end
 
