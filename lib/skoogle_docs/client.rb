@@ -71,10 +71,6 @@ module SkoogleDocs
     # Wraps the Google API credentials into a Hash
     #
     # @return [Hash]
-    #
-    # @example Accessing Credentials
-    #   client = SkoogleDocs::Client.new
-    #   creds = client.credentials
     def credentials
       {
         client_id: client_id,
@@ -109,10 +105,6 @@ module SkoogleDocs
     # Permission scope used to access the Google API
     #
     # @return [String]
-    #
-    # @example Accessing Permission Scope
-    #   client = SkoogleDocs::Client.new
-    #   client.permission_scope
     def permission_scope
       PERMISSION_SCOPE
     end
@@ -120,17 +112,11 @@ module SkoogleDocs
     # Redirect URI used by the Google API
     #
     # @return [String]
-    #
-    # @example Accessing Redirect URI
-    #   client = SkoogleDocs::Client.new
-    #   client.redirect_uri
     def redirect_uri
       REDIRECT_URI
     end
 
     # Wrapper for a SkoogleDocs::Browser instance
-    #
-    # @api private
     #
     # @return [SkoogleDocs::Browser]
     def browser
