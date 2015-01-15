@@ -35,8 +35,4 @@ group :happy_code, halt_on_fail: true do
     watch(%r{.+\.gemspec$})
     watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
   end
-
-  guard :yardstick, all_on_start: false do
-    watch(%r{^lib/(.+)\.rb$})
-  end
 end
