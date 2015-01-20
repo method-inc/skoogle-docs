@@ -6,7 +6,7 @@ module SkoogleDocs
     # Instantiates a new SkoogleDocs::Client object
     #
     # @param options [Hash] the Google API credentials, `client_id`,
-    #   `client_secret`, and `access_token`
+    #   `client_secret`, `auth_code`, `application_name`, `application_version`
     #
     # @return [SkoogleDocs::Client]
     #
@@ -14,7 +14,7 @@ module SkoogleDocs
     #   client = SkoogleDocs::Client.new do |config|
     #     config.client_id = "my_client_id"
     #     config.client_secret = "my_client_secret"
-    #     config.access_token = "my_access_token"
+    #     config.auth_code = "my_auth_code"
     #     config.application_name = "Skoogle Docs"
     #     config.application_version = "0.0.1"
     #   end
@@ -23,7 +23,7 @@ module SkoogleDocs
     #   client = SkoogleDocs::Client.new(
     #     client_id: "my_client_id",
     #     client_secret: "my_client_secret",
-    #     access_token: "my_access_token",
+    #     auth_code: "my_auth_code",
     #     application_name: "Skoogle Docs",
     #     application_version: "0.0.1"
     #   )
