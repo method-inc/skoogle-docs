@@ -8,13 +8,13 @@ module SkoogleDocs
 
     # Instantiates a new SkoogleDocs::Browser object
     #
-    # @param session [SkoogleDocs::Session] the authenticated session object
-    #   to execute requests against the Google API
+    # @param config [SkoogleDocs::Config] the config object with API
+    #   credentials
     #
     # @return [SkoogleDocs::Browser]
-    def initialize(session)
-      @session = session
-      @api = session.api
+    def initialize(config)
+      @session = SkoogleDocs::Session.new(config)
+      @api = @session.api
     end
 
     # Makes a request to retrieve all documents accessible by the session

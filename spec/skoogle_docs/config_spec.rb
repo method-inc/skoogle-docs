@@ -2,7 +2,7 @@ require "helper"
 
 describe SkoogleDocs::Config do
   subject(:config) { build(:config) }
-  let(:incomplete_config){ build(:incomplete_config) }
+  let(:incomplete_config) { build(:incomplete_config) }
 
   describe "#credentials?" do
     context "when there are missing credentials" do

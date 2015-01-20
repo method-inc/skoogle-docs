@@ -3,6 +3,10 @@ module SkoogleDocs
   #
   # @api public
   class Config
+    # Constant definitions that suit the current requirements of Skoogle Docs
+    PERMISSION_SCOPE = "https://www.googleapis.com/auth/drive.readonly"
+    REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
+
     # @!attribute [rw] client_id
     #   @returns [String] the Google API client ID
     #
@@ -19,6 +23,13 @@ module SkoogleDocs
     # @!attrubute [rw] refresh_token
     #   @returns [String] token used to obtain new access token
     attr_accessor :access_token, :refresh_token
+
+    # @!attribute [rw] redirect_uri
+    #   @returns [String] the redirect uri
+    #
+    # @!attrubute [rw] permission_scope
+    #   @returns [String] the permission scope
+    attr_accessor :redirect_uri, :permission_scope
 
     # @!attribute [rw] application_name
     #   @returns [String] the name of the application
@@ -40,6 +51,9 @@ module SkoogleDocs
       end
 
       yield(self) if block_given?
+
+      @redirect_uri = REDIRECT_URI
+      @permission_scope = PERMISSION_SCOPE
     end
 
     # Wraps the application information into a Hash containing
