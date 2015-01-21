@@ -1,4 +1,4 @@
-require "helper"
+require "spec_helper"
 
 describe SkoogleDocs::Browser do
   subject(:browser) { build(:browser) }

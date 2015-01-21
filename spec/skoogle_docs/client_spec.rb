@@ -1,4 +1,4 @@
-require "helper"
+require "spec_helper"
 
 describe SkoogleDocs::Client do
   subject(:client) { build(:client) }
