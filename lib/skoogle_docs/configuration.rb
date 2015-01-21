@@ -2,10 +2,12 @@ module SkoogleDocs
   # SkoogleDocs Config object holds all configuration and app details
   #
   # @api public
-  class Config
-    # Constant definitions that suit the current requirements of Skoogle Docs
+  class Configuration
+    # Configuration detauls
     PERMISSION_SCOPE = "https://www.googleapis.com/auth/drive.readonly"
     REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
+    APP_NAME = "Skoogle Docs"
+    APP_VERSION = "0.0.1"
 
     # @!attribute [rw] client_id
     #   @returns [String] the Google API client ID
@@ -40,20 +42,10 @@ module SkoogleDocs
 
     # Instantiates a new SkoogleDocs::Config object
     #
-    # @param options [Hash] a configuration hash that can hold: `client_id`,
-    #   `client_secret`, `auth_code`, `access_token`, `refresh_token`,
-    #   `application_name`, `application_version`
-    #
     # @return [SkoogleDocs::Config]
-    def initialize(options = {})
-      options.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
-
+    def initialize
+      configure_defaults
       yield(self) if block_given?
-
-      @redirect_uri = REDIRECT_URI
-      @permission_scope = PERMISSION_SCOPE
     end
 
     # Wraps the application information into a Hash containing
@@ -84,6 +76,15 @@ module SkoogleDocs
     # @return [Boolean]
     def credentials?
       credentials.values.all?
+    end
+
+    private
+
+    def configure_defaults
+      @redirect_uri = REDIRECT_URI
+      @permission_scope = PERMISSION_SCOPE
+      @application_name = APP_NAME
+      @application_version = APP_VERSION
     end
   end
 end
