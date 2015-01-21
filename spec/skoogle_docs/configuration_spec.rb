@@ -12,7 +12,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#client_id=" do
     it "can set the value" do
-      client_id = "FUNK_ID"
+      client_id = Faker::Code.ean
       config.client_id = client_id
       expect(config.client_id).to eq client_id
     end
@@ -26,7 +26,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#client_secret=" do
     it "can set the value" do
-      secret = "MY_FUNKY_SECRET"
+      secret = Faker::Code.ean
       config.client_secret = secret
       expect(config.client_secret).to eq secret
     end
@@ -40,7 +40,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#auth_code=" do
     it "can set the value" do
-      code = "FUNKYLICIOUS"
+      code = Faker::Code.ean
       config.auth_code = code
       expect(config.auth_code).to eq code
     end
@@ -54,7 +54,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#access_token=" do
     it "can set the value" do
-      token = "FUNKY_FUNK"
+      token = Faker::Code.ean
       config.access_token = token
       expect(config.access_token).to eq token
     end
@@ -68,7 +68,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#refresh_token=" do
     it "can set the value" do
-      token = "FUNKY_FRESH"
+      token = Faker::Code.ean
       config.refresh_token = token
       expect(config.refresh_token).to eq token
     end
@@ -82,7 +82,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#redirect_uri=" do
     it "can set the value" do
-      uri = "https://funk.com/oauth"
+      uri = Faker::Internet.url
       config.redirect_uri = uri
       expect(config.redirect_uri).to eq uri
     end
@@ -96,7 +96,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#permission_scope=" do
     it "can set the value" do
-      permission = "funkyonly"
+      permission = Faker::Internet.url
       config.permission_scope = permission
       expect(config.permission_scope).to eq permission
     end
@@ -110,7 +110,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#application_name=" do
     it "can se the value" do
-      app_name = "FUNKY DOCS"
+      app_name = Faker::App.name
       config.application_name = app_name
       expect(config.application_name).to eq app_name
     end
@@ -124,7 +124,7 @@ describe SkoogleDocs::Configuration do
 
   describe "#application_version=" do
     it "can set the value" do
-      app_version = "7.7.7"
+      app_version = Faker::App.version
       config.application_version = app_version
       expect(config.application_version).to eq app_version
     end
