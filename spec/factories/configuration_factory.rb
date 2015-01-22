@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :configuration, class: SkoogleDocs::Configuration do
-
     factory :bad_configuration do
       client_id "invalid_client_id"
       client_secret "invalid_client_secret"
