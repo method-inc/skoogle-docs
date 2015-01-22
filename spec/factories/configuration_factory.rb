@@ -4,6 +4,7 @@ FactoryGirl.define do
     factory :bad_configuration do
       client_id "invalid_client_id"
       client_secret "invalid_client_secret"
+      auth_code "invalid_auth_code"
     end
 
     factory :full_configuration do

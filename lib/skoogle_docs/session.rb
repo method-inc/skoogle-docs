@@ -8,8 +8,8 @@ module SkoogleDocs
 
     # Instantiates a new SkoogleDocs::Session object
     #
-    # @param client [SkoogleDocs::Config] the config object with Google API
-    #   credentials
+    # @param client [SkoogleDocs::Configuration] the config object with
+    #   Google API credentials
     #
     # @raise [SkoogleDocs::Error::AuthorizationError] if client credentials are
     #   invalid
