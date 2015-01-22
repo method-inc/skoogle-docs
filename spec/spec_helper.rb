@@ -3,6 +3,7 @@ require "coveralls"
 require "vcr"
 require "rspec"
 require "factory_girl"
+require "faker"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,

@@ -3,7 +3,7 @@ FactoryGirl.define do
     # Valid session definition
     initialize_with do
       VCR.use_cassette("valid_session") do
-        new(build(:client))
+        new(build(:full_configuration))
       end
     end
 
@@ -11,7 +11,7 @@ FactoryGirl.define do
     factory :invalid_session do
       initialize_with do
         VCR.use_cassette("invalid_session") do
-          new(build(:invalid_client))
+          new(build(:bad_configuration))
         end
       end
     end
@@ -19,7 +19,7 @@ FactoryGirl.define do
     # Session has no credentials to authenticate.
     factory :blank_session do
       initialize_with do
-        new(build(:blank_client))
+        new(build(:configuration))
       end
     end
   end

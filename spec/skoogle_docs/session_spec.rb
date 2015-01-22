@@ -1,4 +1,4 @@
-require "helper"
+require "spec_helper"
 
 describe SkoogleDocs::Session do
   subject(:session) { build(:session) }

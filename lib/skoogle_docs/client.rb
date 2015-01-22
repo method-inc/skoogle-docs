@@ -3,128 +3,54 @@ module SkoogleDocs
   #
   # @api public
   class Client
-    PERMISSION_SCOPE = "https://www.googleapis.com/auth/drive.readonly"
-    REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
-
-    # @!attribute [rw] client_id
-    #   @return [String] the Google API client ID
-    #
-    # @!attribute [rw] client_secret
-    #   @return [String] the Google API client secret
-    #
-    # @!attribute [rw] access_token
-    #   @return [String] the Google API access token
-    attr_accessor :client_id, :client_secret, :access_token
+    # @!attribute [rw] config
+    #   @returns [SkoogleDocs::Configuration] a configuration object
+    attr_accessor :config
 
     # Instantiates a new SkoogleDocs::Client object
+    # @param config [SkoogleDocs::Configuration] the config object with
+    #   Google API credentials
     #
-    # @param options [Hash] the Google API credentials, `client_id`,
-    #   `client_secret`, and `access_token`
+    # @raise [SkoogleDocs::Error::AuthorizationError] if client credentials are
+    #   invalid
     #
     # @return [SkoogleDocs::Client]
-    #
-    # @example Using a Block
-    #   client = SkoogleDocs::Client.new do |config|
-    #     config.client_id = "my_client_id"
-    #     config.client_secret = "my_client_secret"
-    #     config.access_token = "my_access_token"
-    #   end
-    #
-    # @example Using a Hash
-    #   client = SkoogleDocs::Client.new(
-    #     client_id: "my_client_id",
-    #     client_secret: "my_client_secret",
-    #     access_token: "my_access_token"
-    #   )
-    #
-    # @example Blank Client
-    #   client = SkoogleDocs::Client.new
-    def initialize(options = {})
-      options.each do |key, value|
-        instance_variable_set("@#{key}", value)
+    def initialize(config)
+      unless config.credentials?
+        raise SkoogleDocs::Errors::BadAuthenticationData
       end
 
-      yield(self) if block_given?
+      @config = config
     end
 
-    # Wraps the Google API credentials into a Hash
+    # Returns a list of all documents accessible to this client
     #
-    # @return [Hash]
-    #
-    # @example Accessing Credentials
-    #   client = SkoogleDocs::Client.new
-    #   creds = client.credentials
-    def credentials
-      {
-        client_id: client_id,
-        client_secret: client_secret,
-        token: access_token
-      }
+    # @return [Array]
+    def documents
+      browser.documents
     end
 
-    # Validates all Google API credentials are present
+    # Returns a document based on the provided ID
     #
-    # @return [Boolean]
+    # @param doc_id [String] the id of the document to look for
     #
-    # @example Credentials are Present
-    #   client = SkoogleDocs::Client.new do |config|
-    #     config.client_id = "my_client_id",
-    #     config.client_secret = "my_client_secret",
-    #     config.access_token = "my_access_token"
-    #   end
+    # @raise [SkoogleDocs::Errors::DocumentNotFound] if no document was found
     #
-    #   client.credentials? # => true
+    # @raise [SkoogleDocs::Errors::InvalidDocument] if the document is not a
+    #   Google Document
     #
-    # @example Credentials are Missing
-    #   client = SkoogleDocs::Client.new do |config|
-    #     config.client_id = "my_client_id"
-    #   end
-    #
-    #   client.credentials? # => false
-    def credentials?
-      credentials.values.all?
-    end
-
-    # Permission scope used to access the Google API
-    #
-    # @return [String]
-    #
-    # @example Accessing Permission Scope
-    #   client = SkoogleDocs::Client.new
-    #   client.permission_scope
-    def permission_scope
-      PERMISSION_SCOPE
-    end
-
-    # Redirect URI used by the Google API
-    #
-    # @return [String]
-    #
-    # @example Accessing Redirect URI
-    #   client = SkoogleDocs::Client.new
-    #   client.redirect_uri
-    def redirect_uri
-      REDIRECT_URI
+    # @return [SkoogleDocs::Document]
+    def document_by_id(doc_id)
+      browser.document_by_id(doc_id)
     end
 
     private
 
-    # Wrapper for a SkoogleDocs::Session instance
-    #
-    # @api private
-    #
-    # @return [SkoogleDocs::Session]
-    def session
-      @session ||= SkoogleDocs::Session.new(self)
-    end
-
     # Wrapper for a SkoogleDocs::Browser instance
-    #
-    # @api private
     #
     # @return [SkoogleDocs::Browser]
     def browser
-      @browser ||= SkoogleDocs::Browser.new(session)
+      @browser ||= SkoogleDocs::Browser.new(@config)
     end
   end
 end

@@ -26,7 +26,7 @@ group :happy_code, halt_on_fail: true do
     rspec.spec_helper = "spec/helper.rb"
 
     watch(%r{^spec/.+_spec\.rb$})
-    watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.("lib/#{m[1]}") }
+    watch(%r{^lib/(.+)\.rb$})     { |m| rspec.spec.(m[1]) }
     watch(rspec.spec_helper)      { rspec.spec_dir }
   end
 
@@ -34,9 +34,5 @@ group :happy_code, halt_on_fail: true do
     watch(%r{.+\.rb$})
     watch(%r{.+\.gemspec$})
     watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
-  end
-
-  guard :yardstick, all_on_start: false do
-    watch(%r{^lib/(.+)\.rb$})
   end
 end

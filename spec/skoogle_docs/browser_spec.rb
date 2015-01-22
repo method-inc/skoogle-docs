@@ -1,4 +1,4 @@
-require "helper"
+require "spec_helper"
 
 describe SkoogleDocs::Browser do
   subject(:browser) { build(:browser) }
@@ -57,7 +57,7 @@ describe SkoogleDocs::Browser do
 
     context "when document id is valid" do
       it "returns a SkoogleDocs document" do
-        expect(valid_document).to_not be_nil
+        expect(valid_document).to be_a SkoogleDocs::Document
       end
     end
   end
