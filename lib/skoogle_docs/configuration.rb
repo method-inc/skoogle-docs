@@ -40,9 +40,9 @@ module SkoogleDocs
     #   @returns [String] the version of the application
     attr_accessor :application_name, :application_version
 
-    # Instantiates a new SkoogleDocs::Config object
+    # Instantiates a new SkoogleDocs::Configuration object
     #
-    # @return [SkoogleDocs::Config]
+    # @return [SkoogleDocs::Configuration]
     def initialize
       configure_defaults
       yield(self) if block_given?
