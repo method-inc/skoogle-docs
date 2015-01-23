@@ -8,7 +8,7 @@ module SkoogleDocs
 
     # Instantiates a new SkoogleDocs::Browser object
     #
-    # @param config [SkoogleDocs::Config] the config object with API
+    # @param config [SkoogleDocs::Configuration] the config object with API
     #   credentials
     #
     # @return [SkoogleDocs::Browser]

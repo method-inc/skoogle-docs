@@ -1,9 +1,12 @@
+require "codeclimate-test-reporter"
 require "simplecov"
 require "coveralls"
 require "vcr"
 require "rspec"
 require "factory_girl"
 require "faker"
+
+CodeClimate::TestReporter.start
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
@@ -25,6 +28,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  # Print the 5 slowest examples and example groups
+  config.profile_examples = 5
+
+  # Load Factory Girl methods
   config.include FactoryGirl::Syntax::Methods
 end
 

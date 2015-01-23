@@ -8,6 +8,7 @@ module SkoogleDocs
     attr_accessor :config
 
     # Instantiates a new SkoogleDocs::Client object
+    #
     # @param config [SkoogleDocs::Configuration] the config object with
     #   Google API credentials
     #

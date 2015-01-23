@@ -10,6 +10,7 @@ end
 group :test do
   gem "coveralls", require: false
   gem "simplecov", require: false
+  gem "codeclimate-test-reporter", require: false
 end
 
 group :development, :test do

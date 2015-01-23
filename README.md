@@ -3,10 +3,12 @@
 [![Build Status](https://img.shields.io/travis/Skookum/skoogle-docs.svg)][travis]
 [![Code Climate](https://img.shields.io/codeclimate/github/Skookum/skoogle-docs.svg)][codeclimate]
 [![Coverage Status](https://img.shields.io/coveralls/Skookum/skoogle-docs.svg)][coveralls]
+[![Inline Docs](http://inch-ci.org/github/Skookum/skoogle-docs.svg?style=shields)][inchdocs]
 
 [travis]: https://travis-ci.org/Skookum/skoogle-docs
 [codeclimate]: https://codeclimate.com/github/Skookum/skoogle-docs
 [coveralls]: https://coveralls.io/r/Skookum/skoogle-docs
+[inchdocs]: http://inch-ci.org/github/Skookum/skoogle-docs
 
 A library for requesting and transforming Google Docs.
 
