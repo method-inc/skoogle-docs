@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SkoogleDocs::Client do
+RSpec.describe SkoogleDocs::Client do
   subject(:client) { build(:client) }
   let(:blank_client) { build(:blank_client) }
 

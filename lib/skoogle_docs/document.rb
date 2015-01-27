@@ -3,6 +3,10 @@ module SkoogleDocs
   #
   # @api public
   class Document
+    # @!attribute [rw] source
+    #   @returns [String] the original document text
+    attr_accessor :source
+
     # Instantiates a new SkoogleDocs::Document object
     #
     # @param source [String] the string representation of the dom
@@ -12,30 +16,20 @@ module SkoogleDocs
       @source = source
     end
 
-    # TODO: Refactor this
-    def transform # string
-      # if string
-      #   body = Nokogiri::HTML(string).css("body").to_s
-      # else
-      #   @latest_from_google.body
-      # end
+    # Runs through the source text and applies transformations
+    #
+    # @returns [Nokogiri::HTML]
+    def transform
+      transformer.rollout
+    end
 
-      # dom = Nokogiri::HTML("<!DOCTYPE html>" + body)
-      # SkoogleDoc::Transformers.link(dom, "./styleguide.css")
-      # SkoogleDoc::Transformers.meta(dom, content: "UTF-8")
-      # SkoogleDoc::Transformers.wrap_content(dom)
-      # SkoogleDoc::Transformers.cover_page(dom)
-      # SkoogleDoc::Transformers.styled_lists(dom)
-      # SkoogleDoc::Transformers.table_of_contents(dom)
+    private
 
-      # apply transformations
-      # if ENV["SKOOGLE_TEST"]
-      #   path = File.join(__dir__, "..", "tmp", "index.html")
-      #   File.write(path, dom.to_html)
-      #   # system %{open #{path}}
-      # end
-
-      # dom.to_html
+    # Wrapper for a SkoogleDocs::Transformer instance
+    #
+    # @return [SkoogleDocs::Transformer]
+    def transformer
+      SkoogleDocs::Transformer.new(@source)
     end
   end
 end

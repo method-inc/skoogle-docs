@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SkoogleDocs::Session do
+RSpec.describe SkoogleDocs::Session do
   subject(:session) { build(:session) }
   let(:invalid_session) { build(:invalid_session) }
   let(:blank_session) { build(:blank_session) }

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SkoogleDocs::Configuration do
+RSpec.describe SkoogleDocs::Configuration do
   subject(:config) { build(:configuration) }
   let(:full_config) { build(:full_configuration) }
 

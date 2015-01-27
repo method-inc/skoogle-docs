@@ -1,3 +1,4 @@
+require "nokogiri"
 require "google/api_client"
 require "skoogle_docs/version"
 require "skoogle_docs/errors"
