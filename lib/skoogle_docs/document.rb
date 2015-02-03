@@ -27,9 +27,11 @@ module SkoogleDocs
 
     # Wrapper for a SkoogleDocs::Transformer instance
     #
-    # @return [SkoogleDocs::Transformer]
-    def transformer
-      SkoogleDocs::Transformer.new(@source)
+    # @param klass [Class] the class to instantiate (must respond to `#rollout`)
+    #
+    # @return [Object]
+    def transformer(klass = SkoogleDocs::Transformer)
+      klass.new(@source)
     end
   end
 end
