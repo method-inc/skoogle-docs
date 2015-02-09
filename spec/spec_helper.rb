@@ -28,6 +28,9 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  # Disable monkey patching for describe
+  config.expose_dsl_globally = false
+
   # Print the 5 slowest examples and example groups
   config.profile_examples = 5
 

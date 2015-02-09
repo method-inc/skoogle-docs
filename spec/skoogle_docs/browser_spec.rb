@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SkoogleDocs::Browser do
+RSpec.describe SkoogleDocs::Browser do
   subject(:browser) { build(:browser) }
 
   let(:documents) do
